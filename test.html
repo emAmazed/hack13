@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- for title text -->
+<style>
+h1 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 125px; line-height: 120px; font-weight: normal; margin-bottom: 100px; margin-top: 20px; text-align: center; text-shadow: 0 1px 1px #fff; }
+
+p { color: #7a7c7f; font-size: 29px; font-family: "Libre Baskerville", serif; line-height: 45px; text-align: center; text-shadow: 0 1px 1px #fff; padding-top: 20px; }
+
+p.byline { font-style: italic; color: #B6B6B6; font-size: 24px; margin-top: 20px; text-align: center; text-shadow: 0 1px 1px #fff; }
+
+body {
+	background-image: url("images/curtain2.jpg");
+	/*background-repeat: repeat-x;*/
+	background-repeat: no-repeat;
+}
+</style>
+
+<style>
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 236px;
+    height: 236px;
+    /*border-radius: 50%;
+    background: #4CAF50;*/
+		border: 0;
+		background: url('images/button.png');
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 236px;
+    height: 236px;
+    /*border-radius: 50%;
+    background: #4CAF50;*/
+		border: 0;
+    background: url('images/button.png');
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Jukebox Musicals</h1>
+
+<div class="slidecontainer">
+  <p><span id="demo"></span></p>
+	<div style="height:60px;"></div>
+  <input type="range" min="1" max="10" value="1" class="slider" id="myRange">
+</div>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = "<img src='images/"+slider.value+".jpg' width=360 height=360 /><br/>\n <audio controls><source src='audio/"+slider.value+".mp3' type='audio/mpeg'>Your browser does not support the audio element.</audio>";
+
+slider.oninput = function() {
+  //output.innerHTML = "<h1>"+this.value+"</h1>";
+	output.innerHTML = "<img src='images/"+slider.value+".jpg' width=360 height=360 /><br/>\n <audio controls><source src='audio/"+slider.value+".mp3' type='audio/mpeg'>Your browser does not support the audio element.</audio>";
+}
+</script>
+
+</body>
+</html>
+
