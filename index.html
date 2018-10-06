@@ -61,6 +61,15 @@ body {
     background: url('images/button.png');
     cursor: pointer;
 }
+
+.playful {
+	font-family: 'Courier New';
+	font-size: 20px;
+	font-weight: bold;
+}
+.icon {
+	color: red;
+}
 </style>
 </head>
 <body>
@@ -76,11 +85,16 @@ body {
 <script>
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
-output.innerHTML = "<img src='images/"+slider.value+".jpg' width=360 height=360 /><br/>\n <audio controls><source src='audio/"+slider.value+".mp3' type='audio/mpeg'>Your browser does not support the audio element.</audio>";
+output.innerHTML = "<img src='images/"+slider.value+".jpg' width=360 height=360 />\n <div class=\"playful\" style='height:30px;'><span class='icon'>A</span>[The Butterfly Lovers] <span class='icon'>B</span>[Jade Dragonfly] <span class='icon'>C</span>[Diau Charn]</div><div class='playful' style='height:30px;'><span class='icon'>D</span>[PanQi SuoQi] <span class='icon'>E</span>[West Chamber] <span class='icon'>F</span>[The Princess' Messenger]</div><div class='playful' style='height:20px;'><span class='icon'>G</span>[The Prince of The Desert] <span class='icon'>H</span>[Dream of The Red Chamber] <span class='icon'>I</span>[Lacoste Phoenix]</div>";
 
 slider.oninput = function() {
   //output.innerHTML = "<h1>"+this.value+"</h1>";
-	output.innerHTML = "<img src='images/"+slider.value+".jpg' width=360 height=360 /><br/>\n <audio controls><source src='audio/"+slider.value+".mp3' type='audio/mpeg'>Your browser does not support the audio element.</audio>";
+	if ( this.value == 1) {
+		output.innerHTML = "<img src='images/"+slider.value+".jpg' width=360 height=360 />\n <div class=\"playful\" style='height:30px;'><span class='icon'>A</span>[The Butterfly Lovers] <span class='icon'>B</span>[Jade Dragonfly] <span class='icon'>C</span>[Diau Charn]</div><div class='playful' style='height:30px;'><span class='icon'>D</span>[PanQi SuoQi] <span class='icon'>E</span>[West Chamber] <span class='icon'>F</span>[The Princess' Messenger]</div><div class='playful' style='height:20px;'><span class='icon'>G</span>[The Prince of The Desert] <span class='icon'>H</span>[Dream of The Red Chamber] <span class='icon'>I</span>[Lacoste Phoenix]</div>";
+	}
+	else {
+		output.innerHTML = "<img src='images/"+slider.value+".jpg' width=360 height=360 />\n <div class=\"playful\" style='height:80px;'><audio controls><source src='audio/"+slider.value+".mp3' type='audio/mpeg'>Your browser does not support the audio element.</audio></div>";
+	}
 }
 </script>
 
